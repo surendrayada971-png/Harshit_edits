@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#090910">
+<title>HXRSHIT EDITS | Photo & Video Editing</title>
+<style>
+:root{--bg:#090910;--panel:#151521;--muted:#b9b8c9;--accent:#b49aff;--white:#f7f6ff}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 85% 5%,#342153 0,transparent 35%),var(--bg);font-family:Arial,Helvetica,sans-serif;color:var(--white)}
+nav{display:flex;justify-content:space-between;align-items:center;padding:18px 6%;border-bottom:1px solid #ffffff18;position:sticky;top:0;background:#090910dd;backdrop-filter:blur(12px);z-index:3}.brand{font-weight:900;letter-spacing:1.5px}.brand b{color:var(--accent)}nav a{color:#fff;text-decoration:none;font-size:14px}
+.hero{padding:72px 6% 54px;max-width:1000px;margin:auto}.pill{display:inline-block;border:1px solid #ffffff28;border-radius:99px;padding:8px 12px;font-size:12px;color:#d9ceff;letter-spacing:1px}
+h1{font-size:clamp(38px,9vw,76px);line-height:1.02;letter-spacing:-2px;margin:20px 0}h1 span{color:var(--accent)}p{color:var(--muted);line-height:1.7}.hero p{max-width:560px;font-size:17px}
+.btn{border:0;display:inline-block;background:var(--accent);color:#130d22;font-weight:800;text-decoration:none;padding:13px 17px;border-radius:12px;margin:8px 7px 0 0;cursor:pointer}.ghost{background:#ffffff10;color:white;border:1px solid #ffffff25}
+section{padding:25px 6% 50px;max-width:1000px;margin:auto}h2{font-size:27px;margin:0 0 8px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px;margin-top:22px}.card{padding:22px;border:1px solid #ffffff17;border-radius:18px;background:linear-gradient(145deg,#1b1a29,#101018)}.icon{font-size:27px}.card h3{margin:12px 0 5px}.card p{font-size:14px;margin-bottom:0}
+.tool{background:#12121c;border:1px solid #ffffff20;padding:20px;border-radius:18px;margin-top:18px}.tool input,.tool select{width:100%;padding:12px;border-radius:10px;border:1px solid #ffffff30;background:#090910;color:white;margin:8px 0 14px}.preview{display:none;max-width:100%;max-height:340px;border-radius:12px;margin-top:12px}.small{font-size:12px;color:#9291a6}
+footer{text-align:center;border-top:1px solid #ffffff18;padding:24px;color:#9291a6;font-size:12px}
+</style>
+</head>
+<body>
+<nav><div class="brand">HXRSHIT <b>EDITS</b></div><a href="#services">Services</a></nav>
+<header class="hero">
+<span class="pill">PHOTO • VIDEO • CREATIVE EDITS</span>
+<h1>Your photos.<br>Your style.<br><span>Next level.</span></h1>
+<p>Welcome to Hxrshit Edits — a creative editing portfolio for clean photos, cinematic looks, reels and video edits.</p>
+<a class="btn" href="#contact">Get in touch</a><a class="btn ghost" href="#tools">Try photo preview</a>
+</header>
+<section id="services"><h2>What I Create</h2><p>Creative styles for your next post or reel.</p><div class="grid">
+<div class="card"><div class="icon">📸</div><h3>Photo Editing</h3><p>Clean, bright, aesthetic edits and portrait touch-ups.</p></div>
+<div class="card"><div class="icon">🎞️</div><h3>Reels & Video</h3><p>Cinematic edits, transitions, short-form video concepts.</p></div>
+<div class="card"><div class="icon">🌙</div><h3>Dark Aesthetic</h3><p>Moody tones, premium looks and profile-picture styles.</p></div>
+</div></section>
+<section id="tools"><h2>Photo Preview Tool</h2><p>Choose a photo from your phone to preview it with a brighter look. Your photo stays in this browser preview; it is not uploaded by this demo.</p>
+<div class="tool"><label for="photo">Choose your photo</label><input id="photo" type="file" accept="image/*"><label for="look">Preview style</label><select id="look"><option value="1.12">Bright & clean</option><option value="1.05">Natural light</option><option value="1.18">Extra bright</option></select><button class="btn" id="apply">Apply preview</button><br><img class="preview" id="preview" alt="Your photo preview"><p class="small">Note: This is a simple brightness preview, not a full video editor.</p></div>
+</section>
+<section id="contact"><h2>Let’s Connect</h2><p>Want to ask about an edit? Add your Instagram username below to create a profile link.</p><div class="tool"><label for="ig">Instagram username (without @)</label><input id="ig" placeholder="e.g. hxrshit_14_"><button class="btn" id="openig">Open Instagram profile</button><p class="small">Only enter a public username. Never enter your password here.</p></div></section>
+<footer>© 2026 Hxrshit Edits · Made for creative minds</footer>
+<script>
+let selected=null;const fileInput=document.getElementById('photo'),preview=document.getElementById('preview');
+fileInput.addEventListener('change',()=>{if(fileInput.files&&fileInput.files[0]){selected=URL.createObjectURL(fileInput.files[0]);preview.src=selected;preview.style.display='block';preview.style.filter='brightness(1.12) contrast(1.03)';}});
+document.getElementById('apply').addEventListener('click',()=>{if(!selected){alert('Pehle apni gallery se photo choose karo.');return;}preview.style.filter='brightness('+document.getElementById('look').value+') contrast(1.03) saturate(1.04)';});
+document.getElementById('openig').addEventListener('click',()=>{let u=document.getElementById('ig').value.trim().replace(/^@/,'');if(!u||!/^[a-zA-Z0-9._]+$/.test(u)){alert('Instagram username sahi likho.');return;}window.open('https://www.instagram.com/'+encodeURIComponent(u)+'/','_blank','noopener');});
+</script>
+</body></html>
